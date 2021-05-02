@@ -74,4 +74,4 @@ final_df = final_df.append(att_df.head(3))
 
 
 
-# print(slim_elements_df.loc[
+# print(slim_elements_df.loc[slim_elements_df.element_type == 2])
