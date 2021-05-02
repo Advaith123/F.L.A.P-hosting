@@ -11,6 +11,7 @@ events_df = pd.DataFrame(json['events'])
 # print(events_df.columns)
 
 elements_df = pd.DataFrame(json['elements'])
+print(elements_df.keys())
 elements_types_df = pd.DataFrame(json['element_types'])
 teams_df = pd.DataFrame(json['teams'])
 # print(teams_df.columns)
@@ -32,7 +33,7 @@ sorted_by_form_elements_df = slim_elements_df.sort_values('form', ascending=Fals
 # sorted_by_points_per_game_elements_df.to_excel('E:/F.L.A.P backend/points_data.xlsx')
 
 def sorting(df):
-    df = df.sort_values('points_per_game', ascending=False)
+    df = df.sort_values('form', ascending=False)
     return df
 
 gk_df = slim_elements_df.loc[slim_elements_df.element_type == 1]
@@ -56,7 +57,6 @@ final_df = final_df.append(att_df.head(3))
 # print(final_df)
 
 
-
 #
 # print(gk_df)
 # print(def_df)
@@ -74,4 +74,4 @@ final_df = final_df.append(att_df.head(3))
 
 
 
-# print(slim_elements_df.loc[slim_elements_df.element_type == 2])
+# print(slim_elements_df.loc[
