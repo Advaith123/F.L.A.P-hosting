@@ -5,6 +5,10 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
+    return "It's working!!!"
+
+@app.route('/team')
+def home():
     return d.final_df.to_json()
 
 if __name__ == "__main__":
