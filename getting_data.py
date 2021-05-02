@@ -18,7 +18,7 @@ teams_df = pd.DataFrame(json['teams'])
 # print(elements_df.head()) top 5 rows
 
 # slim_elements_df = elements_df[['second_name','team','element_type','selected_by_percent','now_cost','minutes','transfers_in','value_season','total_points']]
-slim_elements_df = elements_df[['id', 'second_name', 'element_type', 'points_per_game', 'transfers_in', 'selected_by_percent', 'team_code', 'transfers_out', 'goals_scored', 'assists', 'clean_sheets', 'ict_index', 'chance_of_playing_this_round', 'minutes', 'form', 'saves']]
+slim_elements_df = elements_df[['id', 'first_name', 'second_name', 'photo', 'element_type', 'points_per_game', 'transfers_in', 'selected_by_percent', 'team', 'team_code', 'transfers_out', 'goals_scored', 'assists', 'clean_sheets', 'ict_index', 'chance_of_playing_this_round', 'minutes', 'form', 'saves']]
 sorted_by_form_elements_df = slim_elements_df.sort_values('form', ascending=False).head(20)
 # sorted_by_ict_elements_df = slim_elements_df.sort_values('ict_index', ascending=False).head(20)
 # sorted_by_points_per_game_elements_df = slim_elements_df.sort_values('points_per_game', ascending=False).head(20)
@@ -32,7 +32,7 @@ sorted_by_form_elements_df = slim_elements_df.sort_values('form', ascending=Fals
 # sorted_by_points_per_game_elements_df.to_excel('E:/F.L.A.P backend/points_data.xlsx')
 
 def sorting(df):
-    df = df.sort_values('form', ascending=False)
+    df = df.sort_values('points_per_game', ascending=False)
     return df
 
 gk_df = slim_elements_df.loc[slim_elements_df.element_type == 1]
