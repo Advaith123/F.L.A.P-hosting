@@ -2,6 +2,10 @@ import requests
 import pandas as pd
 import numpy as np
 
+
+index = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15']
+index_numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+
 url = 'https://fantasy.premierleague.com/api/bootstrap-static/'
 r = requests.get(url)
 json = r.json()
@@ -11,7 +15,6 @@ events_df = pd.DataFrame(json['events'])
 # print(events_df.columns)
 
 elements_df = pd.DataFrame(json['elements'])
-print(elements_df.keys())
 elements_types_df = pd.DataFrame(json['element_types'])
 teams_df = pd.DataFrame(json['teams'])
 # print(teams_df.columns)
@@ -19,7 +22,7 @@ teams_df = pd.DataFrame(json['teams'])
 # print(elements_df.head()) top 5 rows
 
 # slim_elements_df = elements_df[['second_name','team','element_type','selected_by_percent','now_cost','minutes','transfers_in','value_season','total_points']]
-slim_elements_df = elements_df[['id', 'first_name', 'second_name', 'photo', 'element_type', 'points_per_game', 'transfers_in', 'selected_by_percent', 'team', 'team_code', 'transfers_out', 'goals_scored', 'assists', 'clean_sheets', 'ict_index', 'chance_of_playing_this_round', 'minutes', 'form', 'saves']]
+slim_elements_df = elements_df[['id', 'second_name', 'element_type', 'points_per_game', 'transfers_in', 'selected_by_percent', 'team_code', 'transfers_out', 'goals_scored', 'assists', 'clean_sheets', 'ict_index', 'chance_of_playing_this_round', 'minutes', 'form', 'saves']]
 sorted_by_form_elements_df = slim_elements_df.sort_values('form', ascending=False).head(20)
 # sorted_by_ict_elements_df = slim_elements_df.sort_values('ict_index', ascending=False).head(20)
 # sorted_by_points_per_game_elements_df = slim_elements_df.sort_values('points_per_game', ascending=False).head(20)
@@ -54,7 +57,15 @@ final_df = gk_df.head(2)
 final_df = final_df.append(def_df.head(5))
 final_df = final_df.append(mid_df.head(5))
 final_df = final_df.append(att_df.head(3))
-# print(final_df)
+# print(final_df.element_type)
+test_df = final_df
+test_df['Index'] = index
+# print(test_df.set_index(test_df.Index))
+final_df = test_df.set_index(test_df.Index)
+# print(test_df)
+# print(test_df.element_type)
+# print(elements_df)
+
 
 
 #
