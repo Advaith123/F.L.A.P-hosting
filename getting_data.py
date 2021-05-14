@@ -5,28 +5,6 @@ import numpy as np
 
 index = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15']
 index_numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
-conditions = [
-    final_df['team'] == 1,
-    final_df['team'] == 2,
-    final_df['team'] == 3,
-    final_df['team'] == 4,
-    final_df['team'] == 5,
-    final_df['team'] == 6,
-    final_df['team'] == 7,
-    final_df['team'] == 8,
-    final_df['team'] == 9,
-    final_df['team'] == 10,
-    final_df['team'] == 11,
-    final_df['team'] == 12,
-    final_df['team'] == 13,
-    final_df['team'] == 14,
-    final_df['team'] == 15,
-    final_df['team'] == 16,
-    final_df['team'] == 17,
-    final_df['team'] == 18,
-    final_df['team'] == 19,
-    final_df['team'] == 20,
-]
 values = [
     'ARS',
     'AVL',
@@ -116,7 +94,28 @@ test_df['Index'] = index
 final_df = test_df.set_index(test_df.Index)
 # final_df['team_name'] = final_df.apply(team_name())
 
-
+conditions = [
+    final_df['team'] == 1,
+    final_df['team'] == 2,
+    final_df['team'] == 3,
+    final_df['team'] == 4,
+    final_df['team'] == 5,
+    final_df['team'] == 6,
+    final_df['team'] == 7,
+    final_df['team'] == 8,
+    final_df['team'] == 9,
+    final_df['team'] == 10,
+    final_df['team'] == 11,
+    final_df['team'] == 12,
+    final_df['team'] == 13,
+    final_df['team'] == 14,
+    final_df['team'] == 15,
+    final_df['team'] == 16,
+    final_df['team'] == 17,
+    final_df['team'] == 18,
+    final_df['team'] == 19,
+    final_df['team'] == 20,
+]
 final_df['team_name'] = np.select(conditions, values) #elegant solution
 
 # print(final_df[['first_name', 'second_name', 'team', 'team_name']])
