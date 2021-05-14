@@ -122,24 +122,3 @@ final_df['team_name'] = np.select(conditions, values) #elegant solution
 # print(test_df)
 # print(test_df.element_type)
 # print(elements_df)
-
-
-
-#
-# print(gk_df)
-# print(def_df)
-# print(mid_df)
-# print((att_df))
-
-# print(gk_df.to_json())
-
-#
-# print(att_df.loc[5])
-# sorted_att_df = att_df.sort_values(['form', 'points_per_game', 'selected_by_percent', 'transfers_in', 'goals_scored', 'assists', 'ict_index', 'clean_sheets'], ascending=[False, False, False, False, False, False, False, False])
-# print(sorted_att_df)
-# print(sorted_att_df.loc[551])
-# print(sorted_att_df.loc[119])
-
-
-
-# print(slim_elements_df.loc[slim_elements_df.element_type == 2])
